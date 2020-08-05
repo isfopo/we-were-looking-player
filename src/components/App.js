@@ -9,6 +9,7 @@ import { About } from './About.js';
 export const App = () => {
 
   const [currentTrack, setCurrentTrack] = useState(0);
+  const [maxTracks] = useState(1)
   const [isPlaying, setIsPlaying] = useState(true);
   const [backgroundColor, setBackgroundColor] = useState(songsArray[currentTrack].backgroundColor);
 
@@ -26,8 +27,18 @@ export const App = () => {
     player.current = new Player({
       url: songsArray[currentTrack].audioPath,
       autostart: true,
-      onload: () => {isLoaded.current = true}
+      onload: () => { isLoaded.current = true },
+      onstop: () => { next() }
     }).toDestination();
+  }
+
+  const next = () => {
+    if ( currentTrack < maxTracks ) {
+      setCurrentTrack( currentTrack + 1 )
+    } else {
+      setCurrentTrack( 0 )
+    }
+    makePlayer(currentTrack);
   }
 
   return (

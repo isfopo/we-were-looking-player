@@ -1,19 +1,28 @@
-import React from 'react'
-import { Img } from 'react-image'
+import React, { useState } from 'react'
 
 import { Links } from './Links.js';
-import { Symbol } from './Symbol.js';
 import artistImage from "../images/artistImage.png";
 
 export const About = props => {
 
+    const [isShowing, setIsShowing] = useState(false)
+
+    const show = () => {
+        setIsShowing(true)
+    }
+
+    const hide = () => {
+        setIsShowing(false)
+    }
+
     return (
-        <div className="About">
-            <div className="symbols">
-                <img
-                    src={require(`../icons/${props.iconColor}/symbols/sound.png`)} 
-                    alt="sound icon"  
-                />
+        <div className="About" onMouseLeave={() => {hide()}}>
+            <img onMouseEnter={() => {show()}}
+                src={require(`../icons/${props.iconColor}/symbols/sound.png`)} 
+                alt="sound icon"  
+            /> 
+        { isShowing ?
+            <>
                 <img 
                     src={require(`../icons/${props.iconColor}/symbols/shape.png`)} 
                     alt="shape icon"  
@@ -26,12 +35,10 @@ export const About = props => {
                     src={require(`../icons/${props.iconColor}/symbols/memory.png`)} 
                     alt="memory icon"  
                 />
-            </div>
             <h1 className="bio">sound // shape // place // memory</h1>
             <img className="artistImage"
                 src={artistImage} />
 
-            <div className="links">
                 <a href="mailto isaacpoolemusic@gmail.com">
                     <img
                         src={require(`../icons/${props.iconColor}/links/email.png`)} 
@@ -55,8 +62,9 @@ export const About = props => {
                         src={require(`../icons/${props.iconColor}/links/instagram.png`)} 
                         alt="instagram"  
                     />
-                </a>
-            </div>
+                </a> 
+            </> : <></>
+            }
         </div>
     )
 }
