@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 
-import { Links } from './Links.js';
 import artistImage from "../images/artistImage.png";
 
 export const About = props => {

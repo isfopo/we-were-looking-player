@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import {createUseStyles} from 'react-jss'
 import { Player } from 'tone';
 
 import {songsArray} from "../songs-array.js";
@@ -39,10 +40,11 @@ export const App = () => {
       setCurrentTrack( 0 )
     }
     makePlayer(currentTrack);
+    setBackgroundColor(songsArray[currentTrack].backgroundColor)
   }
 
   return (
-    <div className={`App`}>
+    <div className="App" style={{ background: backgroundColor }}>
       <About 
         iconColor={songsArray[currentTrack].iconColor}
       />
