@@ -18,3 +18,11 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+.About img {
+  width: 10%;
+}
+
+.artistImage {
+  width: 50%;
+}

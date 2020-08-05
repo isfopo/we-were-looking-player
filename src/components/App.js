@@ -4,6 +4,7 @@ import { Player } from 'tone';
 import {songsArray} from "../songs-array.js";
 
 import '../App.css';
+import { About } from './About.js';
 
 export const App = () => {
 
@@ -29,14 +30,11 @@ export const App = () => {
     }).toDestination();
   }
 
-  const play = () => {
-    console.log(isLoaded)
-    player.current.start();
-  }
-
   return (
     <div className={`App`}>
-      
+      <About 
+        iconColor={songsArray[currentTrack].iconColor}
+      />
     </div>
   );
 }
