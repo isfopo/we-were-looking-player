@@ -41,10 +41,12 @@ export const App = () => {
 
   const play = () => {
     player.current.start(pausePoint);
+    setIsPlaying(true)
   }
 
   const pause = () => {
     setPausePoint(player.current.now())
+    setIsPlaying(false)
     player.current.stop();
   }
 
