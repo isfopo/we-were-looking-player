@@ -36,7 +36,9 @@ export const About = props => {
                 />
             <h1 className="bio">sound // shape // place // memory</h1>
             <img className="artistImage"
-                src={artistImage} />
+                src={artistImage} 
+                alt="Isaac Poole"
+            />
 
                 <a href="mailto isaacpoolemusic@gmail.com">
                     <img
