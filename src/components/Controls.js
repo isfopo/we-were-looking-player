@@ -9,7 +9,7 @@ export const Controls = props => {
             />
             { props.isPlaying ?
                 <>
-                    <img onClick={() => {props.stop()}}
+                    <img onClick={() => {props.pause()}}
                         src={require(`../icons/controls/pause.png`)}
                         alt="stop"
                     />
