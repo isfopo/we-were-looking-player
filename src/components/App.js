@@ -24,6 +24,10 @@ export const App = () => {
       // eslint-disable-next-line
     }, []);
 
+  useEffect(() => {
+    setBackgroundColor(songsArray[currentTrack].backgroundColor)
+  }, [currentTrack])
+
   const makePlayer = currentTrack => {
 
     if ( isLoaded ) {
@@ -57,7 +61,6 @@ export const App = () => {
       setCurrentTrack( 0 )
     }
     makePlayer(currentTrack);
-    setBackgroundColor(songsArray[currentTrack].backgroundColor)
   }
 
   const back = () => {
@@ -67,7 +70,6 @@ export const App = () => {
       setCurrentTrack( maxTracks )
     }
     makePlayer(currentTrack);
-    setBackgroundColor(songsArray[currentTrack].backgroundColor)
   }
 
   return ( 
