@@ -5,6 +5,7 @@ import { songsArray } from "../songs-array.js";
 
 import '../App.css';
 import { About } from './About.js';
+import { CoverImage } from './CoverImage'
 import { TrackList } from './TrackList';
 import { Controls } from './Controls.js';
 
@@ -36,7 +37,7 @@ export const App = () => {
     }
     
     player.current = new Player({
-      url: songsArray[currentTrack].audioPath,
+      url: `./audio/${songsArray[currentTrack].fileName}.mp3`,
       autostart: true,
       onload: () => { setIsLoaded(true) }
     }).toDestination();
@@ -77,7 +78,11 @@ export const App = () => {
       { isLoaded ?
         <>
           <About 
-            iconColor={songsArray[currentTrack].iconColor}
+            iconColor={ songsArray[currentTrack].iconColor }
+          />
+          <CoverImage 
+            fileName={ songsArray[currentTrack].fileName }
+            imagePosition={songsArray[currentTrack].imagePosition}
           />
           <div className="bottom-bar">
             <TrackList 
