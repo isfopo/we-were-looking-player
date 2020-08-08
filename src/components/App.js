@@ -39,7 +39,8 @@ export const App = () => {
     player.current = new Player({
       url: `./audio/${songsArray[currentTrack].fileName}.mp3`,
       autostart: true,
-      onload: () => { setIsLoaded(true) }
+      onload: () => { setIsLoaded(true) },
+      onstop: () => { pause() }
     }).toDestination();
     setIsPlaying(true)
   }
@@ -50,9 +51,14 @@ export const App = () => {
   }
 
   const pause = () => {
-    setPausePoint(player.current.now())
+    let now = player.current.now();
+    setPausePoint(now)
     setIsPlaying(false)
     player.current.stop();
+    console.log(player.current.now())
+    if ( now >= songsArray[currentTrack].duration) {
+      next();
+    }
   }
 
   const next = () => {

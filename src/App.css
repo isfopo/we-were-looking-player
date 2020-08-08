@@ -1,6 +1,7 @@
 .App {
   text-align: center;
-  font-family: 'Comfortaa', cursive;
+  font-family: 'Comfortaa', sans-serif;
+  min-height: 100%;
 }
 
 .App-logo {
@@ -27,6 +28,20 @@
   width: 50%;
 }
 
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  height: 5vw;
+  width: 100%;
+  background-color: #000000;
+  opacity: 50%;
+}
+
+.TrackList {
+  color: #ffffff;
+  opacity: 90%;
+}
+
 .Controls img {
-  width: 10%;
+  height: 4vw;
 }

@@ -34,7 +34,12 @@ export const About = props => {
                     src={require(`../icons/${props.iconColor}/symbols/memory.png`)} 
                     alt="memory icon"  
                 />
-            <h1 className="bio">sound // shape // place // memory</h1>
+            <h1 
+                style={ props.iconColor === "dark" ? {color: "#000000" } : {color: "##FFFFFF"}} 
+                className="bio"
+            >
+                sound // shape // place // memory
+            </h1>
             <img className="artistImage"
                 src={artistImage} 
                 alt="Isaac Poole"
