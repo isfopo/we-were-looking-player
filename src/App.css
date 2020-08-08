@@ -4,44 +4,95 @@
   min-height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.loading {
+  position: fixed;
+  top: 25%;
+  width: 50%;
+  margin: auto;
+  text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.About {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: flex-end;
+  flex-flow: row wrap;
+  position: absolute;
+  top: 5vw;
+  right: 5%;
+  width: 90%;
 }
 
 .About img {
-  width: 10%;
+  width: 21%;
+  padding: 2%;
 }
 
-.artistImage {
-  width: 50%;
+.About .bio {
+  font-size: 6vw;
+}
+
+.About .artistImage {
+  width: 100%;
+  padding: 0;
+  margin: auto;
+  border: 1px solid #707070;
+}
+
+.CoverImage {
+  display: none;
 }
 
 .bottom-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   position: fixed;
   bottom: 0;
-  height: 5vw;
+  height: 10vh;
   width: 100%;
   background-color: #000000;
   opacity: 50%;
 }
 
-.TrackList {
+.TrackList ul {
   color: #ffffff;
   opacity: 90%;
+  list-style-type: none;
 }
 
 .Controls img {
-  height: 4vw;
+  height: 6vh;
+  position: relative;
+  top: 2vh;
+  margin: 0 0.5vw;
+}
+
+.Controls .backNext {
+  height: 4vh;
+  top: 1vh;
+}
+
+@media (min-aspect-ratio: 9/16) {
+  .About {
+    width: 50%;
+  } 
+
+  .About .bio {
+    font-size: 3vw;
+  }
+
+  .CoverImage {
+    display: inline;
+  }
+}
+
+@media (min-aspect-ratio: 1/1) {
+  .About {
+    top: 1vw;
+    right: 1%;
+    width: 25%;
+  }
+  .About .bio {
+    font-size: 2vw;
+  }
 }

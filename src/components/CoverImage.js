@@ -2,7 +2,7 @@ import React from 'react'
 
 export const CoverImage = props => {
     return (
-        <div>
+        <div className="CoverImage">
             <img 
                 src={require(`../images/${props.fileName}.png`)}
                 alt="single cover"

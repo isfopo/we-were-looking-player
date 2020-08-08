@@ -26,6 +26,10 @@ export const App = () => {
     }, []);
 
   useEffect(() => {
+    document.body.style.background = backgroundColor;
+  }, [backgroundColor])
+
+  useEffect(() => {
     setBackgroundColor(songsArray[currentTrack].backgroundColor)
   }, [currentTrack])
 
@@ -55,7 +59,6 @@ export const App = () => {
     setPausePoint(now)
     setIsPlaying(false)
     player.current.stop();
-    console.log(player.current.now())
     if ( now >= songsArray[currentTrack].duration) {
       next();
     }
@@ -80,7 +83,7 @@ export const App = () => {
   }
 
   return ( 
-    <div className="App" style={{ background: backgroundColor }}>
+    <div className="App" >
       { isLoaded ?
         <>
           <About 
@@ -107,7 +110,7 @@ export const App = () => {
         </>
       :
         <>
-          <p className="loading">loading</p>
+          <p className="loading">loading...</p>
         </>
       }
     </div>

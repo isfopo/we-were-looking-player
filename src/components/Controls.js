@@ -3,7 +3,9 @@ import React from 'react'
 export const Controls = props => {
     return (
         <div className="Controls">
-            <img onClick={() => {props.back()}}
+            <img 
+                className="backNext"
+                onClick={() => {props.back()}}
                 src={require(`../icons/controls/back.png`)}
                 alt="back"
             />
@@ -22,7 +24,9 @@ export const Controls = props => {
                     />
                 </>
             }
-            <img onClick={() => {props.next()}}
+            <img 
+                className="backNext"
+                onClick={() => {props.next()}}
                 src={require(`../icons/controls/next.png`)}
                 alt="next"
             />

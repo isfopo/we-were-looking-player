@@ -44,31 +44,32 @@ export const About = props => {
                 src={artistImage} 
                 alt="Isaac Poole"
             />
-
-                <a href="mailto isaacpoolemusic@gmail.com">
-                    <img
-                        src={require(`../icons/${props.iconColor}/links/email.png`)} 
-                        alt="email"  
-                    />
-                </a>
-                <a href="https://soundcloud.com/these-elements-combined">
-                    <img 
-                        src={require(`../icons/${props.iconColor}/links/soundcloud.png`)} 
-                        alt="soundcloud"  
-                    />
-                </a>
-                <a href="https://theseelementscombined.bandcamp.com/">
-                    <img 
-                        src={require(`../icons/${props.iconColor}/links/bandcamp.png`)} 
-                        alt="bandcamp"  
-                    />
-                </a>
-                <a href="https://www.instagram.com/theseelementscombined">
-                    <img 
-                        src={require(`../icons/${props.iconColor}/links/instagram.png`)} 
-                        alt="instagram"  
-                    />
-                </a> 
+                <div className="links">
+                    <a href="mailto isaacpoolemusic@gmail.com">
+                        <img
+                            src={require(`../icons/${props.iconColor}/links/email.png`)} 
+                            alt="email"  
+                        />
+                    </a>
+                    <a href="https://soundcloud.com/these-elements-combined">
+                        <img 
+                            src={require(`../icons/${props.iconColor}/links/soundcloud.png`)} 
+                            alt="soundcloud"  
+                        />
+                    </a>
+                    <a href="https://theseelementscombined.bandcamp.com/">
+                        <img 
+                            src={require(`../icons/${props.iconColor}/links/bandcamp.png`)} 
+                            alt="bandcamp"  
+                        />
+                    </a>
+                    <a href="https://www.instagram.com/theseelementscombined">
+                        <img 
+                            src={require(`../icons/${props.iconColor}/links/instagram.png`)} 
+                            alt="instagram"  
+                        />
+                    </a> 
+                </div>
             </> : <></>
             }
         </div>
