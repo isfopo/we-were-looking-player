@@ -12,21 +12,37 @@ export const TrackList = props => {
         setIsShowing(false)
     }
 
+    const toggle = () => {
+        if (isShowing) {
+            setIsShowing(false)
+        } else {
+            setIsShowing(true)
+        }
+    }
+
     return (
-        <div className="TrackList">
-            <ul 
-                onMouseEnter={() => { show() }}
-                onMouseLeave={() => { hide() }}
-                >
-                { isShowing ? 
-                    props.songsArray.map( ( song, index ) => <li key={index} onClick={() => {props.makePlayer(index)}}>{song.name}</li>)
+        <div 
+            className="TrackList"
+            onMouseEnter={() => { show() }}>
+            <img
+                className="list-icon"
+                src={require('../icons/controls/list.png')}
+                alt="tracklist"
+                onTouchStart={() => { toggle() }}
+                onTouchCancel={() => { hide() }}
+            />
+            { isShowing ? 
+                <div className="list">
+                    <ul 
+                        onMouseLeave={() => { hide() }}>
+                        {props.songsArray.map( ( song, index ) => <li key={index} onClick={() => {props.makePlayer(index)}}>{song.name}</li>)}
+                    </ul>
+                    </div>
                     : 
-                    <>
-                        <li>{ props.songsArray[props.currentTrack].name }</li>
-                    </>
-                     
+                    <div className="display">
+                        <p onTouchStart={() => { show() }}>{ props.songsArray[props.currentTrack].name }</p>
+                    </div> 
                 }
-            </ul>
         </div>
     )
 }

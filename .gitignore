@@ -24,4 +24,4 @@ yarn-error.log*
 
 design-link.txt
 
-public/audio/
+*.mp3

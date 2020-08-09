@@ -5,11 +5,10 @@
 }
 
 .loading {
-  position: fixed;
-  top: 25%;
-  width: 50%;
-  margin: auto;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
 }
 
 .About {
@@ -54,25 +53,78 @@
   opacity: 50%;
 }
 
+.TrackList {
+  display: flex;
+  flex-direction: row;
+}
+
+.TrackList img {
+  height: 3vh;
+  position: relative;
+  top: 3.5vh;
+  left: 3vw;
+}
+
+.TrackList .display {
+  color: #ffffff;
+  font-size: 4.5vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.TrackList .display p {
+  padding-left: 5vw;
+}
+
+.TrackList .list {
+  position: fixed;
+  top: 20vh;
+  background-color: #000000;
+  line-height: 3vh;
+  padding: 3vh 10vh 3vh 5vh;
+}
+
+.TrackList .list li {
+  margin-bottom: 3vh;
+}
+
+.TrackList .list li:last-child {
+  margin-bottom: 0;
+}
+
 .TrackList ul {
   color: #ffffff;
   opacity: 90%;
   list-style-type: none;
+  padding-left: 3vh;
+  font-size: 4.5vw;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
+.Controls {
+  display: flex;
+  flex-wrap: nowrap;
+}
 .Controls img {
-  height: 6vh;
+  height: 4vh;
   position: relative;
-  top: 2vh;
+  top: 3vh;
+  right: 5%;
   margin: 0 0.5vw;
 }
 
 .Controls .backNext {
-  height: 4vh;
-  top: 1vh;
+  height: 3vh;
+  top: 3.5vh;
 }
 
-@media (min-aspect-ratio: 9/16) {
+@media (min-aspect-ratio: 13/16) {
   .About {
     width: 50%;
   } 
@@ -83,6 +135,18 @@
 
   .CoverImage {
     display: inline;
+  }
+
+  .TrackList img {
+    display: none;
+  }
+
+  .TrackList .display p {
+    font-size: 16px;
+  }
+
+  .TrackList .list ul {
+    font-size: 16px;
   }
 }
 

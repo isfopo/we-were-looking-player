@@ -33,7 +33,7 @@ export const App = () => {
     setBackgroundColor(songsArray[currentTrack].backgroundColor)
   }, [currentTrack])
 
-  const makePlayer = currentTrack => {
+  const makePlayer = trackToPlay => {
 
     if ( isLoaded ) {
       player.current.dispose();
@@ -41,11 +41,12 @@ export const App = () => {
     }
     
     player.current = new Player({
-      url: `./audio/${songsArray[currentTrack].fileName}.mp3`,
+      url: `./audio/${songsArray[trackToPlay].fileName}.mp3`,
       autostart: true,
       onload: () => { setIsLoaded(true) },
       onstop: () => { pause() }
     }).toDestination();
+    setCurrentTrack(trackToPlay)
     setIsPlaying(true)
   }
 
@@ -67,10 +68,11 @@ export const App = () => {
   const next = () => {
     if ( currentTrack < maxTracks ) {
       setCurrentTrack( currentTrack + 1 )
+      makePlayer(currentTrack + 1);
     } else {
       setCurrentTrack( 0 )
+      makePlayer(currentTrack + 1);
     }
-    makePlayer(currentTrack);
   }
 
   const back = () => {
