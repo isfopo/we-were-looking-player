@@ -109,7 +109,7 @@ export const App = () => {
           /> 
           :
             <h2 className="unreleased">
-              will be released {
+              this song will be released {
                 getReleaseDate()
               }
             </h2>

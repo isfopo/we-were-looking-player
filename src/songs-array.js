@@ -4,7 +4,7 @@ export const songsArray = [
         fileName : "immortal-in-his-own-sense",
         duration: "244.47260770975055",
         backgroundColor : "#CACCFA",
-        releaseDate : 0,
+        releaseDate : 21697019954750,
         iconColor : "dark",
         imagePosition : {
             position: 'fixed',
@@ -14,13 +14,17 @@ export const songsArray = [
         }
     },
     {
-        name : "he steps into a dark room",
+        name : "",
         fileName : "immortal-in-his-own-sense",
-        backgroundColor : "#E6E6E6",
-        releaseDate : 0,
+        duration: "244.47260770975055",
+        backgroundColor : "#CACCFA",
+        releaseDate : 21697019954750,
         iconColor : "dark",
         imagePosition : {
-            position: 'fixed'
+            position: 'fixed',
+            width: '20vw',
+            top: "10vw",
+            left: "10vw"
         }
-    }
+    },
 ]
