@@ -4,6 +4,7 @@ export const songsArray = [
         fileName : "immortal-in-his-own-sense",
         duration: "244.47260770975055",
         backgroundColor : "#CACCFA",
+        releaseDate : 0,
         iconColor : "dark",
         imagePosition : {
             position: 'fixed',
@@ -16,6 +17,7 @@ export const songsArray = [
         name : "he steps into a dark room",
         fileName : "immortal-in-his-own-sense",
         backgroundColor : "#E6E6E6",
+        releaseDate : 0,
         iconColor : "dark",
         imagePosition : {
             position: 'fixed'

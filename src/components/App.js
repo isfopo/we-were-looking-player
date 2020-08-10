@@ -12,8 +12,8 @@ import { Controls } from './Controls.js';
 export const App = () => {
 
   const [currentTrack, setCurrentTrack] = useState(0);
-  const [maxTracks] = useState(1);
   const [pausePoint, setPausePoint] = useState(0);
+  const [isReleased, setIsReleased] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [backgroundColor, setBackgroundColor] = useState(songsArray[currentTrack].backgroundColor);
@@ -21,7 +21,7 @@ export const App = () => {
   const player = useRef(null);
 
   useEffect(() => {
-    makePlayer(currentTrack)
+      makePlayer(currentTrack)
       // eslint-disable-next-line
     }, []);
 
@@ -39,15 +39,27 @@ export const App = () => {
       player.current.dispose();
       setIsLoaded(false);
     }
-    
-    player.current = new Player({
-      url: `./audio/${songsArray[trackToPlay].fileName}.mp3`,
-      autostart: true,
-      onload: () => { setIsLoaded(true) },
-      onstop: () => { pause() }
-    }).toDestination();
-    setCurrentTrack(trackToPlay)
-    setIsPlaying(true)
+
+    console.log(songsArray[currentTrack].releaseDate)
+    const date = new Date ()
+    if (songsArray[currentTrack].releaseDate < date.getTime()) {
+      
+      player.current = new Player({
+        url: `./audio/${songsArray[trackToPlay].fileName}.mp3`,
+        autostart: true,
+        onload: () => { setIsLoaded(true) },
+        onstop: () => { pause() }
+      }).toDestination();
+      setCurrentTrack(trackToPlay)
+      setIsPlaying(true)
+
+      setIsReleased(true)
+    }
+  }
+
+  const getReleaseDate = () => {
+    const releaseDate = new Date(21697019954750)
+    return releaseDate.toUTCString().slice(0, 15).toLowerCase();
   }
 
   const play = () => {
@@ -66,35 +78,42 @@ export const App = () => {
   }
 
   const next = () => {
-    if ( currentTrack < maxTracks ) {
+    if ( currentTrack < songsArray.length - 1 ) {
       setCurrentTrack( currentTrack + 1 )
       makePlayer(currentTrack + 1);
     } else {
-      setCurrentTrack( 0 )
-      makePlayer(currentTrack + 1);
+      setCurrentTrack( 0 );
+      makePlayer( 0 );
     }
   }
 
   const back = () => {
     if ( currentTrack > 0 ) {
+      makePlayer( currentTrack - 1 );
       setCurrentTrack( currentTrack - 1 )
     } else {
-      setCurrentTrack( maxTracks )
+      makePlayer( songsArray.length - 1 );
+      setCurrentTrack( songsArray.length - 1 )
     }
-    makePlayer(currentTrack);
   }
 
   return ( 
     <div className="App" >
-      { isLoaded ?
-        <>
           <About 
             iconColor={ songsArray[currentTrack].iconColor }
           />
+          { isReleased ? 
           <CoverImage 
             fileName={ songsArray[currentTrack].fileName }
             imagePosition={songsArray[currentTrack].imagePosition}
-          />
+          /> 
+          :
+            <h2 className="unreleased">
+              will be released {
+                getReleaseDate()
+              }
+            </h2>
+          }
           <div className="bottom-bar">
             <TrackList 
               songsArray={ songsArray }
@@ -109,12 +128,6 @@ export const App = () => {
               back={back}
             />
           </div>
-        </>
-      :
-        <>
-          <p className="loading">loading...</p>
-        </>
-      }
     </div>
   );
 }
