@@ -8,9 +8,9 @@ export const songsArray = [
         iconColor : "dark",
         imagePosition : {
             position: 'fixed',
-            width: '20vw',
-            top: "10vw",
-            left: "10vw"
+            height: '70vh',
+            top: "10vh",
+            left: "10vh"
         }
     },
     {
@@ -22,9 +22,9 @@ export const songsArray = [
         iconColor : "dark",
         imagePosition : {
             position: 'fixed',
-            width: '20vw',
-            top: "10vw",
-            left: "10vw"
+            width: '90vh',
+            top: "5vh",
+            left: "5vh"
         }
     },
     {
@@ -36,9 +36,9 @@ export const songsArray = [
         iconColor : "dark",
         imagePosition : {
             position: 'fixed',
-            width: '20vw',
-            top: "10vw",
-            left: "10vw"
+            width: '90vh',
+            bottom: "15vh",
+            left: "5vh"
         }
     },
     {
@@ -50,9 +50,9 @@ export const songsArray = [
         iconColor : "dark",
         imagePosition : {
             position: 'fixed',
-            width: '20vw',
-            top: "10vw",
-            left: "10vw"
+            width: '50vh',
+            bottom: "15vh",
+            left: "5vh"
         }
     },
     {
@@ -63,10 +63,11 @@ export const songsArray = [
         releaseDate : 0,
         iconColor : "light",
         imagePosition : {
-            position: 'fixed',
-            width: '20vw',
-            top: "10vw",
-            left: "10vw"
+            display: "block",
+            margin: "auto",
+            "margin-top": "10vh",
+            width: "50vh",
+            height: "100%"
         }
     },
     {
@@ -77,10 +78,11 @@ export const songsArray = [
         releaseDate : 0,
         iconColor : "light",
         imagePosition : {
-            position: 'fixed',
-            width: '20vw',
-            top: "10vw",
-            left: "10vw"
+            display: "block",
+            margin: "auto",
+            "margin-top": "5vh",
+            width: "100vh",
+            height: "100%"
         }
     },
     {
@@ -92,9 +94,9 @@ export const songsArray = [
         iconColor : "light",
         imagePosition : {
             position: 'fixed',
-            width: '20vw',
-            top: "10vw",
-            left: "10vw"
+            width: "50vh",
+            top: "10vh",
+            right: "50vh"
         }
     },
     {
@@ -105,10 +107,11 @@ export const songsArray = [
         releaseDate : 0,
         iconColor : "light",
         imagePosition : {
-            position: 'fixed',
-            width: '20vw',
-            top: "10vw",
-            left: "10vw"
+            display: "block",
+            margin: "auto",
+            "margin-top": "3vh",
+            width: "120vh",
+            height: "100%"
         }
     },
     {
@@ -119,10 +122,11 @@ export const songsArray = [
         releaseDate : 0,
         iconColor : "light",
         imagePosition : {
-            position: 'fixed',
-            width: '20vw',
-            top: "10vw",
-            left: "10vw"
+            display: "block",
+            margin: "auto",
+            "margin-top": "10vh",
+            width: "100vh",
+            height: "100%"
         }
     }
 ]
