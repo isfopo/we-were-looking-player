@@ -58,7 +58,7 @@ export const App = () => {
   }
 
   const getReleaseDate = () => {
-    const releaseDate = new Date(21697019954750)
+    const releaseDate = new Date(songsArray[currentTrack].releaseDate)
     return releaseDate.toUTCString().slice(0, 15).toLowerCase();
   }
 
