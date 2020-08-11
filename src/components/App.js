@@ -68,7 +68,7 @@ export const App = () => {
   }
 
   const pause = () => {
-    let now = player.current.now();
+    const now = player.current.now();
     setPausePoint(now)
     setIsPlaying(false)
     player.current.stop();
@@ -105,7 +105,7 @@ export const App = () => {
           { isReleased ? 
           <CoverImage 
             fileName={ songsArray[currentTrack].fileName }
-            imagePosition={songsArray[currentTrack].imagePosition}
+            imagePosition={ songsArray[currentTrack].imagePosition }
           /> 
           :
             <h2 className="unreleased">
