@@ -80,7 +80,7 @@
 
 .TrackList .list {
   position: fixed;
-  top: 20vh;
+  bottom: 9.9vh;
   background-color: #000000;
   line-height: 3vh;
   padding: 3vh 10vh 3vh 5vh;
@@ -88,6 +88,8 @@
 
 .TrackList .list li {
   margin-bottom: 3vh;
+  font-size: 4vw;
+  line-height: normal;
 }
 
 .TrackList .list li:last-child {
@@ -146,7 +148,15 @@
   }
 
   .TrackList .list ul {
+    margin: 0;
+  }
+
+  .TrackList .list li {
     font-size: 16px;
+  }
+
+  .TrackList .list li:last-child {
+    margin-bottom: 0;
   }
 }
 
