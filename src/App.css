@@ -41,6 +41,12 @@
   display: none;
 }
 
+.SpotifyButton {
+  position: fixed;
+  left: 1vw;
+  top: 2vh;
+}
+
 .bottom-bar {
   display: flex;
   flex-direction: row;
@@ -145,6 +151,10 @@
 
   .TrackList .display p {
     font-size: 16px;
+  }
+
+  .TrackList .list {
+    text-align: left;
   }
 
   .TrackList .list ul {

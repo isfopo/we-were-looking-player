@@ -35,7 +35,7 @@ export const About = props => {
                     alt="memory icon"  
                 />
             <h1 
-                style={ props.iconColor === "dark" ? {color: "#000000" } : {color: "##FFFFFF"}} 
+                style={ props.iconColor === "dark" ? {color: "#000000" } : {color: "#FFFFFF"}} 
                 className="bio"
             >
                 sound // shape // place // memory
@@ -51,19 +51,19 @@ export const About = props => {
                             alt="email"  
                         />
                     </a>
-                    <a href="https://soundcloud.com/these-elements-combined">
+                    <a href="https://soundcloud.com/these-elements-combined" target="_blank" rel="noopener noreferrer">
                         <img 
                             src={require(`../icons/${props.iconColor}/links/soundcloud.png`)} 
                             alt="soundcloud"  
                         />
                     </a>
-                    <a href="https://theseelementscombined.bandcamp.com/">
+                    <a href="https://theseelementscombined.bandcamp.com/" target="_blank" rel="noopener noreferrer">
                         <img 
                             src={require(`../icons/${props.iconColor}/links/bandcamp.png`)} 
                             alt="bandcamp"  
                         />
                     </a>
-                    <a href="https://www.instagram.com/theseelementscombined">
+                    <a href="https://www.instagram.com/theseelementscombined" target="_blank" rel="noopener noreferrer">
                         <img 
                             src={require(`../icons/${props.iconColor}/links/instagram.png`)} 
                             alt="instagram"  

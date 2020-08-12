@@ -5,7 +5,8 @@ import { songsArray } from "../songs-array.js";
 
 import '../App.css';
 import { About } from './About.js';
-import { CoverImage } from './CoverImage'
+import { CoverImage } from './CoverImage';
+import { SpotifyButton } from './SpotifyButton';
 import { TrackList } from './TrackList';
 import { Controls } from './Controls.js';
 
@@ -40,7 +41,6 @@ export const App = () => {
       setIsLoaded(false);
     }
 
-    console.log(songsArray[currentTrack].releaseDate)
     const date = new Date ()
     if (songsArray[currentTrack].releaseDate < date.getTime()) {
       
@@ -68,11 +68,10 @@ export const App = () => {
   }
 
   const pause = () => {
-    const now = player.current.now();
-    setPausePoint(now)
+    setPausePoint(player.current.now())
     setIsPlaying(false)
     player.current.stop();
-    if ( now >= songsArray[currentTrack].duration) {
+    if ( player.current.now() >= songsArray[currentTrack].duration) {
       next();
     }
   }
@@ -114,6 +113,9 @@ export const App = () => {
               }
             </h2>
           }
+          <SpotifyButton 
+            iconColor={ songsArray[currentTrack].iconColor }
+          />
           <div className="bottom-bar">
             <TrackList 
               songsArray={ songsArray }
