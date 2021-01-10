@@ -101,7 +101,7 @@ export const App = () => {
             iconColor={ songsArray[currentTrack].iconColor }
           />
           { true || isReleased ? 
-            <VideoPlayer source={"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"} />
+            <VideoPlayer source={"here-is-the-world-there-is-beyond"} />
           :
             <h2 className="unreleased">
               this song will be released {

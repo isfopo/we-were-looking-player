@@ -10,7 +10,7 @@ export const  VideoPlayer = (props) => {
 
     useEffect(() => {
         const player = videojs(playerRef.current, { autoplay: true, controls: false }, () => {
-            player.src(source);
+            player.play();
         });
 
         return () => {
@@ -19,8 +19,10 @@ export const  VideoPlayer = (props) => {
     }, []);
 
     return (
-        <div>
-            <video ref={playerRef} className="video" autoplay playsInline />
+        <div data-vjs-player>
+            <video ref={playerRef} className="video" style={{pointerEvents: "none"}} autoplay playsInline>
+                <source src={`./video/${source}.mp4`} type="video/mp4" />
+            </video>
         </div>
     );
 }
