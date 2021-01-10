@@ -1,11 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Player } from 'tone';
+import videojs from 'video.js';
 
 import { songsArray } from "../songs-array.js";
 
 import '../App.css';
+
 import { About } from './About.js';
-import { CoverImage } from './CoverImage';
+import { VideoPlayer } from './VideoPlayer';
 import { SpotifyButton } from './SpotifyButton';
 import { TrackList } from './TrackList';
 import { Controls } from './Controls.js';
@@ -19,10 +20,8 @@ export const App = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [backgroundColor, setBackgroundColor] = useState(songsArray[currentTrack].backgroundColor);
 
-  const player = useRef(null);
-
   useEffect(() => {
-      makePlayer(currentTrack)
+      //makePlayer(currentTrack)
       // eslint-disable-next-line
     }, []);
 
@@ -36,26 +35,26 @@ export const App = () => {
 
   const makePlayer = trackToPlay => {
 
-    if ( isLoaded ) {
-      player.current.dispose();
-      setIsLoaded(false);
-    }
+  //   if ( isLoaded ) {
+  //     player.current.dispose();
+  //     setIsLoaded(false);
+  //   }
 
-    const date = new Date ()
-    if (songsArray[currentTrack].releaseDate < date.getTime()) {
+  //   const date = new Date ()
+  //   if (songsArray[currentTrack].releaseDate < date.getTime()) {
       
-      player.current = new Player({
-        url: `./audio/${songsArray[trackToPlay].fileName}.mp3`,
-        autostart: true,
-        onload: () => { setIsLoaded(true) },
-        onstop: () => { pause() }
-      }).toDestination();
-      setCurrentTrack(trackToPlay)
-      setIsPlaying(true)
+  //     player.current = new Player({
+  //       url: `./audio/${songsArray[trackToPlay].fileName}.mp3`,
+  //       autostart: true,
+  //       onload: () => { setIsLoaded(true) },
+  //       onstop: () => { pause() }
+  //     }).toDestination();
+  //     setCurrentTrack(trackToPlay)
+  //     setIsPlaying(true)
 
-      setIsReleased(true)
-    }
-  }
+  //     setIsReleased(true)
+  //   }
+   }
 
   const getReleaseDate = () => {
     const releaseDate = new Date(songsArray[currentTrack].releaseDate)
@@ -63,37 +62,37 @@ export const App = () => {
   }
 
   const play = () => {
-    player.current.start(0, pausePoint);
-    setIsPlaying(true)
+    // player.current.start(0, pausePoint);
+    // setIsPlaying(true)
   }
 
   const pause = () => {
-    setPausePoint(player.current.now())
-    setIsPlaying(false)
-    player.current.stop();
-    if ( player.current.now() >= songsArray[currentTrack].duration) {
-      next();
-    }
+    // setPausePoint(player.current.now())
+    // setIsPlaying(false)
+    // player.current.stop();
+    // if ( player.current.now() >= songsArray[currentTrack].duration) {
+    //   next();
+    // }
   }
 
   const next = () => {
-    if ( currentTrack < songsArray.length - 1 ) {
-      setCurrentTrack( currentTrack + 1 )
-      makePlayer(currentTrack + 1);
-    } else {
-      setCurrentTrack( 0 );
-      makePlayer( 0 );
-    }
+    // if ( currentTrack < songsArray.length - 1 ) {
+    //   setCurrentTrack( currentTrack + 1 )
+    //   makePlayer(currentTrack + 1);
+    // } else {
+    //   setCurrentTrack( 0 );
+    //   makePlayer( 0 );
+    // }
   }
 
   const back = () => {
-    if ( currentTrack > 0 ) {
-      makePlayer( currentTrack - 1 );
-      setCurrentTrack( currentTrack - 1 )
-    } else {
-      makePlayer( songsArray.length - 1 );
-      setCurrentTrack( songsArray.length - 1 )
-    }
+    // if ( currentTrack > 0 ) {
+    //   makePlayer( currentTrack - 1 );
+    //   setCurrentTrack( currentTrack - 1 )
+    // } else {
+    //   makePlayer( songsArray.length - 1 );
+    //   setCurrentTrack( songsArray.length - 1 )
+    // }
   }
 
   return ( 
@@ -101,11 +100,8 @@ export const App = () => {
           <About 
             iconColor={ songsArray[currentTrack].iconColor }
           />
-          { isReleased ? 
-          <CoverImage 
-            fileName={ songsArray[currentTrack].fileName }
-            imagePosition={ songsArray[currentTrack].imagePosition }
-          /> 
+          { true || isReleased ? 
+            <VideoPlayer source={"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"} />
           :
             <h2 className="unreleased">
               this song will be released {

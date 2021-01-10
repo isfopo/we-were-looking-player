@@ -180,3 +180,11 @@
     font-size: 2vw;
   }
 }
+
+.vjs-loading-spinner,
+.vjs-big-play-button,
+.vjs-control-bar,
+.vjs-error-display,
+.vjs-text-track-settings {
+  display: none;
+}

@@ -11,7 +11,9 @@
     "react-image": "^4.0.3",
     "react-jss": "^10.3.0",
     "react-scripts": "3.4.1",
-    "tone": "^14.7.39"
+    "redux": "^4.0.5",
+    "video-react": "^0.14.1",
+    "video.js": "^7.0.3"
   },
   "scripts": {
     "start": "react-scripts start",
