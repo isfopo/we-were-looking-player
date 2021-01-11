@@ -1,17 +1,12 @@
-import { getNodeText } from '@testing-library/react';
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import ReactPlayer from 'react-player';
 
-const config = {
-    file: {
-        forceVideo: "true",
-        attributes: {
-            autoplay: "true"
-        }
-    }
-}
 export const  VideoPlayer = (props) => {
     const { source, isPlaying, setIsLoaded, next } = props;
+
+    const handleBuffer = () => {
+        console.log(`buffering`);
+    }
     return (
         <div className="player">
             <ReactPlayer 
@@ -19,6 +14,7 @@ export const  VideoPlayer = (props) => {
                 playing={isPlaying}
                 onReady={setIsLoaded}
                 onEnded={() => next()}
+                onBuffer={() => handleBuffer()}
                 width='100%'
                 height='100%'
             />
