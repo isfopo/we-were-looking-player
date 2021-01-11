@@ -1,38 +1,28 @@
+const dev = false //TODO: set to false for production
+
 export const songsArray = [
     {
         name : "immortal in his own sense",
         fileName : "immortal-in-his-own-sense",
         duration: 242,
         backgroundColor : "#CACCFA",
-        releaseDate : 0,
-        iconColor : "dark",
-        imagePosition : {
-            position: 'fixed',
-            height: '70vh',
-            top: "10vh",
-            left: "10vh"
-        }
+        releaseDate : dev ? 0 : "February 24, 2021 00:00:00",
+        iconColor : "dark"
     },
     {
         name : "he steps into a dark room",
         fileName : "he-steps-into-a-dark-room",
         duration: 248,
         backgroundColor : "#B8CBEA",
-        releaseDate : 0,
-        iconColor : "dark",
-        imagePosition : {
-            position: 'fixed',
-            width: '90vh',
-            top: "5vh",
-            left: "5vh"
-        }
+        releaseDate : dev ? 0 : "March 10, 2021 00:00:00",
+        iconColor : "dark"
     },
     {
         name : "small, unnoticeable events",
         fileName : "small-unnoticeable-events",
         duration: 263,
         backgroundColor : "#CAD3FA",
-        releaseDate : 0,
+        releaseDate : dev ? 0 : "March 24, 2021 00:00:00",
         iconColor : "dark",
         imagePosition : {
             position: 'fixed',
@@ -46,7 +36,7 @@ export const songsArray = [
         fileName : "pressed-up-against-a-wall-of-teenage-angst",
         duration: 210,
         backgroundColor : "#B4D9EB",
-        releaseDate : 0,
+        releaseDate : dev ? 0 : "April 7, 2021 00:00:00",
         iconColor : "dark",
         imagePosition : {
             position: 'fixed',
@@ -60,7 +50,7 @@ export const songsArray = [
         fileName : "here-is-the-world-there-is-beyond",
         duration: 198,
         backgroundColor : "#1C3954",
-        releaseDate : 0,
+        releaseDate : dev ? 0 : "April 21, 2021 00:00:00",
         iconColor : "light",
         imagePosition : {
             display: "block",
@@ -75,7 +65,7 @@ export const songsArray = [
         fileName : "kept-on-pushing-and-pushing-and-pushing",
         duration: 236,
         backgroundColor : "#023B58",
-        releaseDate : 0,
+        releaseDate : dev ? 0 : "May 5, 2021 00:00:00",
         iconColor : "light",
         imagePosition : {
             display: "block",
@@ -90,7 +80,7 @@ export const songsArray = [
         fileName : "as-if-it-were-some-purified-existence",
         duration: 272,
         backgroundColor : "#182354",
-        releaseDate : 0,
+        releaseDate : dev ? 0 : "May 19, 2021 00:00:00",
         iconColor : "light",
         imagePosition : {
             position: 'fixed',
@@ -104,7 +94,7 @@ export const songsArray = [
         fileName : "no-tricks-not-yet",
         duration: 225,
         backgroundColor : "#161730",
-        releaseDate : 0,
+        releaseDate : dev ? 0 : "June 2, 2021 00:00:00",
         iconColor : "light",
         imagePosition : {
             display: "block",
@@ -119,7 +109,7 @@ export const songsArray = [
         fileName : "angel-cut-and-cold",
         duration: 210,
         backgroundColor : "#17253D",
-        releaseDate : 0,
+        releaseDate : dev ? 0 : "June 16th, 2021 00:00:00",
         iconColor : "light",
         imagePosition : {
             display: "block",

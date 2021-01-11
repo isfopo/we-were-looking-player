@@ -10,11 +10,9 @@ import { SpotifyButton } from './SpotifyButton';
 import { TrackList } from './TrackList';
 import { Controls } from './Controls.js';
 
-export const App = () => {
+export const App = () => { //TODO: add logo
 
   const [currentTrack, setCurrentTrack] = useState(0);
-  const [pausePoint, setPausePoint] = useState(0);
-  const [isReleased, setIsReleased] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [isPlaying, setIsPlaying] = useState(true);
   const [backgroundColor, setBackgroundColor] = useState(songsArray[currentTrack].backgroundColor);
@@ -36,8 +34,10 @@ export const App = () => {
   }
 
   const getReleaseDate = (track) => {
-    const releaseDate = new Date(songsArray[track].releaseDate)
-    return releaseDate.toUTCString().slice(0, 16).toLowerCase();
+    return new Date(songsArray[track].releaseDate);
+  }
+  const isReleased = (track) => {
+    return getReleaseDate(track).getTime() < Date.now();
   }
 
   const play = () => {
@@ -69,7 +69,7 @@ export const App = () => {
           <About 
             iconColor={ songsArray[currentTrack].iconColor }
           />
-          { true || isReleased ? // TODO: fix bool
+          { isReleased(currentTrack) ? 
             <VideoPlayer 
               source={ songsArray[currentTrack].fileName } 
               next={() => next()}
@@ -77,9 +77,9 @@ export const App = () => {
               setIsLoaded={handleSetIsLoaded}
             />
           :
-            <h2 className="unreleased">
+            <h2 className={`unreleased ${songsArray[currentTrack].iconColor}`}>
               this song will be released {
-                getReleaseDate()
+                getReleaseDate(currentTrack).toUTCString().slice(0, 16).toLowerCase()
               }
             </h2>
           }

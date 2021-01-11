@@ -5,6 +5,14 @@
   position: relative;
 }
 
+.light {
+  color: #ffffffba;
+}
+
+.dark {
+  color: #000000ba;
+}
+
 .unreleased {
   display: flex;
   justify-content: center;
