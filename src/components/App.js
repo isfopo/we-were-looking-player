@@ -35,8 +35,8 @@ export const App = () => {
     setCurrentTrack(index);
   }
 
-  const getReleaseDate = () => {
-    const releaseDate = new Date(songsArray[currentTrack].releaseDate)
+  const getReleaseDate = (track) => {
+    const releaseDate = new Date(songsArray[track].releaseDate)
     return releaseDate.toUTCString().slice(0, 15).toLowerCase();
   }
 
@@ -48,10 +48,20 @@ export const App = () => {
     setIsPlaying(false);
   }
 
-  const next = () => { //TODO: implement next and back
+  const next = () => {
+    if ( currentTrack < songsArray.length - 1 ) {
+      setCurrentTrack( currentTrack + 1 )
+    } else {
+      setCurrentTrack(0)
+    }
   }
 
   const back = () => {
+    if ( currentTrack > 0 ) {
+      setCurrentTrack( currentTrack - 1 )
+    } else {
+      setCurrentTrack(songsArray.length - 1)
+    }
   }
 
   //TODO: play next track at end of track
@@ -60,7 +70,7 @@ export const App = () => {
           <About 
             iconColor={ songsArray[currentTrack].iconColor }
           />
-          { true || isReleased ? 
+          { true || isReleased ? // TODO: fix bool
             <VideoPlayer 
               source={ songsArray[currentTrack].fileName } 
               isPlaying={isPlaying}
