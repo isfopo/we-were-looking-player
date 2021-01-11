@@ -35,14 +35,14 @@ export const TrackList = props => {
                 <div className="list">
                     <ul 
                         onMouseLeave={() => { hide() }}>
-                        {props.songsArray.map( ( song, index ) => <li key={index} onClick={() => {props.makePlayer(index)}}>{song.name}</li>)}
+                        {props.songsArray.map( ( song, index ) => <li key={index} onClick={() => {props.selectTrack(index)}}>{song.name}</li>)}
                     </ul>
-                    </div>
-                    : 
-                    <div className="display">
-                        <p onTouchStart={() => { show() }}>{ props.songsArray[props.currentTrack].name }</p>
-                    </div> 
-                }
+                </div>
+                : 
+                <div className="display">
+                    <p onTouchStart={() => { show() }}>{ props.songsArray[props.currentTrack].name }</p>
+                </div> 
+            }
         </div>
     )
 }

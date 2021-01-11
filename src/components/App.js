@@ -33,28 +33,9 @@ export const App = () => {
     setBackgroundColor(songsArray[currentTrack].backgroundColor)
   }, [currentTrack])
 
-  const makePlayer = trackToPlay => {
-
-  //   if ( isLoaded ) {
-  //     player.current.dispose();
-  //     setIsLoaded(false);
-  //   }
-
-  //   const date = new Date ()
-  //   if (songsArray[currentTrack].releaseDate < date.getTime()) {
-      
-  //     player.current = new Player({
-  //       url: `./audio/${songsArray[trackToPlay].fileName}.mp3`,
-  //       autostart: true,
-  //       onload: () => { setIsLoaded(true) },
-  //       onstop: () => { pause() }
-  //     }).toDestination();
-  //     setCurrentTrack(trackToPlay)
-  //     setIsPlaying(true)
-
-  //     setIsReleased(true)
-  //   }
-   }
+  const selectTrack = index => {
+    setCurrentTrack(index);
+  }
 
   const getReleaseDate = () => {
     const releaseDate = new Date(songsArray[currentTrack].releaseDate)
@@ -62,37 +43,17 @@ export const App = () => {
   }
 
   const play = () => {
-    // player.current.start(0, pausePoint);
-    // setIsPlaying(true)
+    setIsPlaying(true);
   }
 
   const pause = () => {
-    // setPausePoint(player.current.now())
-    // setIsPlaying(false)
-    // player.current.stop();
-    // if ( player.current.now() >= songsArray[currentTrack].duration) {
-    //   next();
-    // }
+    setIsPlaying(false);
   }
 
   const next = () => {
-    // if ( currentTrack < songsArray.length - 1 ) {
-    //   setCurrentTrack( currentTrack + 1 )
-    //   makePlayer(currentTrack + 1);
-    // } else {
-    //   setCurrentTrack( 0 );
-    //   makePlayer( 0 );
-    // }
   }
 
   const back = () => {
-    // if ( currentTrack > 0 ) {
-    //   makePlayer( currentTrack - 1 );
-    //   setCurrentTrack( currentTrack - 1 )
-    // } else {
-    //   makePlayer( songsArray.length - 1 );
-    //   setCurrentTrack( songsArray.length - 1 )
-    // }
   }
 
   return ( 
@@ -101,7 +62,7 @@ export const App = () => {
             iconColor={ songsArray[currentTrack].iconColor }
           />
           { true || isReleased ? 
-            <VideoPlayer source={"here-is-the-world-there-is-beyond"} />
+            <VideoPlayer source={ songsArray[currentTrack].fileName } />
           :
             <h2 className="unreleased">
               this song will be released {
@@ -115,7 +76,7 @@ export const App = () => {
           <div className="bottom-bar">
             <TrackList 
               songsArray={ songsArray }
-              makePlayer={ makePlayer }
+              selectTrack={ selectTrack }
               currentTrack={ currentTrack }
             />
             <Controls 
