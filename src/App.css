@@ -2,6 +2,7 @@
   text-align: center;
   font-family: 'Comfortaa', sans-serif;
   min-height: 100%;
+  position: relative;
 }
 
 .unreleased {
@@ -181,10 +182,11 @@
   }
 }
 
-.vjs-loading-spinner,
-.vjs-big-play-button,
-.vjs-control-bar,
-.vjs-error-display,
-.vjs-text-track-settings {
-  display: none;
+.player video {
+  position: fixed;
+  z-index: -100;
+  object-fit: cover;
+  min-width: 100% !important;
+  min-height: 100% !important;
+  transform: translateX(-50%);
 }

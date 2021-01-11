@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import videojs from 'video.js';
 
 import { songsArray } from "../songs-array.js";
 
@@ -28,6 +27,10 @@ export const App = () => {
     setBackgroundColor(songsArray[currentTrack].backgroundColor)
   }, [currentTrack])
 
+  const handleSetIsLoaded = (isLoaded) => {
+    setIsLoaded(isLoaded);
+  }
+
   const selectTrack = index => {
     setCurrentTrack(index);
   }
@@ -45,19 +48,24 @@ export const App = () => {
     setIsPlaying(false);
   }
 
-  const next = () => {
+  const next = () => { //TODO: implement next and back
   }
 
   const back = () => {
   }
 
+  //TODO: play next track at end of track
   return ( 
     <div className="App" >
           <About 
             iconColor={ songsArray[currentTrack].iconColor }
           />
           { true || isReleased ? 
-            <VideoPlayer source={ songsArray[currentTrack].fileName } isPlaying={isPlaying} />
+            <VideoPlayer 
+              source={ songsArray[currentTrack].fileName } 
+              isPlaying={isPlaying}
+              setIsLoaded={handleSetIsLoaded}
+            />
           :
             <h2 className="unreleased">
               this song will be released {
@@ -74,13 +82,15 @@ export const App = () => {
               selectTrack={ selectTrack }
               currentTrack={ currentTrack }
             />
-            <Controls 
-              isPlaying={isPlaying}
-              play={play}
-              pause={pause}
-              next={next}
-              back={back}
-            />
+            { isLoaded &&
+              <Controls 
+                isPlaying={isPlaying}
+                play={play}
+                pause={pause}
+                next={next}
+                back={back}
+              />
+            }
           </div>
     </div>
   );
