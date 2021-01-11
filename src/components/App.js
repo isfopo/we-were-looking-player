@@ -37,7 +37,7 @@ export const App = () => {
 
   const getReleaseDate = (track) => {
     const releaseDate = new Date(songsArray[track].releaseDate)
-    return releaseDate.toUTCString().slice(0, 15).toLowerCase();
+    return releaseDate.toUTCString().slice(0, 16).toLowerCase();
   }
 
   const play = () => {
@@ -64,7 +64,6 @@ export const App = () => {
     }
   }
 
-  //TODO: play next track at end of track
   return ( 
     <div className="App" >
           <About 
@@ -73,6 +72,7 @@ export const App = () => {
           { true || isReleased ? // TODO: fix bool
             <VideoPlayer 
               source={ songsArray[currentTrack].fileName } 
+              next={() => next()}
               isPlaying={isPlaying}
               setIsLoaded={handleSetIsLoaded}
             />
@@ -83,7 +83,7 @@ export const App = () => {
               }
             </h2>
           }
-          <SpotifyButton 
+          <SpotifyButton // TODO: put my spotify URI
             iconColor={ songsArray[currentTrack].iconColor }
           />
           <div className="bottom-bar">
