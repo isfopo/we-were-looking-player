@@ -10,14 +10,10 @@ const config = {
     }
 }
 export const  VideoPlayer = (props) => {
-    const { source } = props;
-    const playerRef = useRef();
-
-
-
+    const { source, isPlaying } = props;
     return (
-        <div data-vjs-player>
-            <ReactPlayer url={`./video/${source}.mp4`} playing="true" />
+        <div className="player">
+            <ReactPlayer url={`./video/${source}.mp4`} playing={isPlaying} />
         </div>
     );
 }

@@ -17,13 +17,8 @@ export const App = () => {
   const [pausePoint, setPausePoint] = useState(0);
   const [isReleased, setIsReleased] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
   const [backgroundColor, setBackgroundColor] = useState(songsArray[currentTrack].backgroundColor);
-
-  useEffect(() => {
-      //makePlayer(currentTrack)
-      // eslint-disable-next-line
-    }, []);
 
   useEffect(() => {
     document.body.style.background = backgroundColor;
@@ -62,7 +57,7 @@ export const App = () => {
             iconColor={ songsArray[currentTrack].iconColor }
           />
           { true || isReleased ? 
-            <VideoPlayer source={ songsArray[currentTrack].fileName } />
+            <VideoPlayer source={ songsArray[currentTrack].fileName } isPlaying={isPlaying} />
           :
             <h2 className="unreleased">
               this song will be released {
