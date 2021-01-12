@@ -6,7 +6,6 @@ import '../App.css';
 
 import { About } from './About.js';
 import { VideoPlayer } from './VideoPlayer';
-import { SpotifyButton } from './SpotifyButton';
 import { TrackList } from './TrackList';
 import { Controls } from './Controls.js';
 
@@ -63,7 +62,7 @@ export const App = () => { //TODO: add logo
       setCurrentTrack(songsArray.length - 1)
     }
   }
-
+// TODO: put my spotify URI
   return ( 
     <div className="App" >
           <About 
@@ -83,9 +82,6 @@ export const App = () => { //TODO: add logo
               }
             </h2>
           }
-          <SpotifyButton // TODO: put my spotify URI
-            iconColor={ songsArray[currentTrack].iconColor }
-          />
           <div className="bottom-bar">
             <TrackList 
               songsArray={ songsArray }
