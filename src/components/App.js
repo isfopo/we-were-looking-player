@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { isBrowser } from 'react-device-detect';
 
 import { songsArray } from "../songs-array.js";
 
@@ -13,7 +14,7 @@ export const App = () => {
 
   const [currentTrack, setCurrentTrack] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(isBrowser);
   const [backgroundColor, setBackgroundColor] = useState(songsArray[currentTrack].backgroundColor);
 
   useEffect(() => {
