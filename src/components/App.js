@@ -9,7 +9,7 @@ import { VideoPlayer } from './VideoPlayer';
 import { TrackList } from './TrackList';
 import { Controls } from './Controls.js';
 
-export const App = () => { //TODO: add logo
+export const App = () => {
 
   const [currentTrack, setCurrentTrack] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
